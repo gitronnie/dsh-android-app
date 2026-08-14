@@ -1,0 +1,9 @@
+DeepSeek Harness Android includes the DeepSeek fish/whale logo path from
+deepseek-ai/deepseek-harness apps/web/public/favicon.svg.
+
+Copyright (c) 2026 DeepSeek
+Licensed under the MIT License. See THIRD_PARTY_LICENSES/DEEPSEEK_HARNESS_LICENSE.
+
+Markdown rendering uses multiplatform-markdown-renderer by Mike Penz.
+Copyright 2025 Mike Penz. Licensed under the Apache License, Version 2.0.
+See THIRD_PARTY_LICENSES/MULTIPLATFORM_MARKDOWN_RENDERER_LICENSE.

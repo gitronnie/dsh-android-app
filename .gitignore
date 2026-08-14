@@ -1,0 +1,16 @@
+.gradle/
+.kotlin/
+.idea/
+build/
+**/build/
+local.properties
+*.iml
+captures/
+.tmp/
+.tmp-*.png
+artifacts/*
+!artifacts/DeepSeek-Harness-v1.0.0.apk
+!artifacts/SHA256SUMS.txt
+*.jks
+*.keystore
+signing.properties
