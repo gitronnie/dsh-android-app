@@ -107,6 +107,10 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import com.mikepenz.markdown.m3.Markdown
 import com.mikepenz.markdown.m3.markdownTypography
+import com.mikepenz.markdown.compose.components.markdownComponents
+import com.mikepenz.markdown.compose.elements.MarkdownHighlightedCodeBlock
+import com.mikepenz.markdown.compose.elements.MarkdownHighlightedCodeFence
+import com.mikepenz.markdown.coil3.Coil3ImageTransformerImpl
 import io.github.hakunm.deepseekharness.HarnessState
 import io.github.hakunm.deepseekharness.HarnessViewModel
 import io.github.hakunm.deepseekharness.ApprovalUiState
@@ -983,11 +987,15 @@ private fun ChatItem(item: ChatDisplayItem) {
                 )
             }
         }
-        ChatItemKind.ASSISTANT -> Markdown(
-            content = item.body,
-            typography = compactMarkdownTypography(),
-            modifier = Modifier.fillMaxWidth().widthIn(max = 720.dp).padding(horizontal = 2.dp, vertical = 2.dp),
-        )
+        ChatItemKind.ASSISTANT -> SelectionContainer {
+            Markdown(
+                content = item.body,
+                typography = compactMarkdownTypography(),
+                components = rememberMarkdownComponents(),
+                imageTransformer = Coil3ImageTransformerImpl,
+                modifier = Modifier.fillMaxWidth().widthIn(max = 720.dp).padding(horizontal = 2.dp, vertical = 2.dp),
+            )
+        }
         else -> ActivityRow(item)
     }
 }
@@ -1050,11 +1058,33 @@ private fun ActivityRow(item: ChatDisplayItem) {
             Markdown(
                 content = item.body,
                 typography = compactMarkdownTypography(),
+                components = rememberMarkdownComponents(),
+                imageTransformer = Coil3ImageTransformerImpl,
                 modifier = Modifier.padding(start = 27.dp, end = 6.dp, bottom = 8.dp),
             )
         }
     }
 }
+
+@Composable
+private fun rememberMarkdownComponents() = markdownComponents(
+    codeFence = {
+        MarkdownHighlightedCodeFence(
+            content = it.content,
+            node = it.node,
+            style = it.typography.code,
+            showHeader = true,
+        )
+    },
+    codeBlock = {
+        MarkdownHighlightedCodeBlock(
+            content = it.content,
+            node = it.node,
+            style = it.typography.code,
+            showHeader = true,
+        )
+    },
+)
 
 @Composable
 private fun compactMarkdownTypography() = markdownTypography(

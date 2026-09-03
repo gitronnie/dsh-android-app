@@ -99,6 +99,9 @@ dependencies {
     implementation(libs.kotlinx.serialization.json)
     implementation(libs.okhttp)
     implementation(libs.markdown.renderer.m3)
+    implementation(libs.markdown.renderer.code)
+    implementation(libs.markdown.renderer.coil3)
+    implementation(libs.coil.compose)
 
     testImplementation(libs.junit)
     testImplementation(libs.mockwebserver)
