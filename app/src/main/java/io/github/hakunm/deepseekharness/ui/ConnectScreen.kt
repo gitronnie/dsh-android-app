@@ -97,7 +97,7 @@ fun ConnectScreen(state: HarnessState, viewModel: HarnessViewModel) {
                     onValueChange = { endpoint = it; viewModel.setEndpointDraft(it) },
                     modifier = Modifier.fillMaxWidth(),
                     label = { Text(stringResource(R.string.server_address)) },
-                    placeholder = { Text("http://192.168.1.20:3090") },
+                    placeholder = { Text("http://127.0.0.1:3090") },
                     leadingIcon = { Icon(Icons.Outlined.Dns, null) },
                     singleLine = true,
                     keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Uri),

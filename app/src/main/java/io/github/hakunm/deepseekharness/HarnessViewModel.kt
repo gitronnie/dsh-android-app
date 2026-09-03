@@ -64,7 +64,7 @@ sealed interface ApprovalUiState {
 data class HarnessState(
     val restoring: Boolean = true,
     val busy: Boolean = false,
-    val endpointDraft: String = "http://192.168.1.20:3090",
+    val endpointDraft: String = "http://127.0.0.1:3090",
     val healthOk: Boolean = false,
     val connected: Boolean = false,
     val endpoint: String = "",
